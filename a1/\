@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+	#define ARRAYSIZE 7
+	#define STACKSIZE 8
+
+int readInts(int stack[], int maxInts, char *argv[], int argc) {
+	int i;
+	int k = 0;
+	for(i=1; i<argc; i++){
+        	//For each argument
+		int tmp = atoi(argv[i]);
+		if(tmp != 0){ //check if numeric, put in stack
+			if(k < maxInts){
+				&stack[k] = tmp;
+				k++;
+			}else{
+				//Error due to too much numerical values
+				return -1;
+			}
+		}
+	}
+	return k;
+}
+
+int readOperators(char operators[], int expectedNumOperators, char *argv[], int argc, int indexArgvOperator) {
+
+}
+
+int evaluate(int stack[], char operators[], int numItemsInStack) {
+
+}
+
+void printInt(int intToPrint) {
+	// Just print integer
+	printf("Result is %d", intToPrint);
+}
+
+int main(int argc, char *argv[]){
+	
+	int integerStack[STACKSIZE];
+	int tmpResult; 
+	int i;
+	tmpResult = readInts(integerStack, STACKSIZE, argv, argc);
+	if(tmpResult < 0){
+		//Error due to too many integers or bad input
+		printf("Bad input character encountered.  Quitting.");
+	}
+	for (i = 0; i < tmpResult; i++){
+		printf("%d", integerStack[tmpResult]);
+	}
+        
+	return 0;
+}
+
+
